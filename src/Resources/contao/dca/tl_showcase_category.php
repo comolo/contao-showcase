@@ -27,7 +27,8 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
         (
             'keys' => array
             (
-                'id' => 'primary'
+                'id' => 'primary',
+                'alias' => 'index',
             )
         ),
     ),
@@ -106,7 +107,7 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
     'palettes' => array
     (
         '__selector__'                => array(),
-        'default'                     => '{general_legend},title;',
+        'default'                     => '{general_legend},title,alias,isotopeFilter;',
     ),
 
     // Subpalettes
@@ -140,6 +141,26 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'alias' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['alias'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp'=>'folderalias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50 clr'),
+            'sql'                     => "varchar(255) NOT NULL default ''",
+            'save_callback' => array
+            (
+                array(TlShowcaseCategory::class, 'generateAlias')
+            ),
+        ),
+        'isotopeFilter' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['isotopeFilter'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>''),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
     )

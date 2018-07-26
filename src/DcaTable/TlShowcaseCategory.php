@@ -16,8 +16,33 @@ namespace Comolo\ShowcaseBundle\DcaTable;
  */
 class TlShowcaseCategory
 {
-    public function addCteType()
+    /**
+     * Return legend of category entries
+     *
+     * @param $arrRow
+     * @return string
+     */
+    public function addCteType($arrRow)
     {
-        return '<p>DEBUG</p>';
+        return $arrRow['title'];
+    }
+
+    /**
+     * Generate a category alias
+     *
+     * @param $varValue
+     * @param \DataContainer $dc
+     * @return mixed
+     */
+    public function generateAlias($varValue, \DataContainer $dc)
+    {
+        // Generate an alias if there is none
+        if ($varValue == '')
+        {
+            $slugOptions = array();
+            $varValue = \System::getContainer()->get('contao.slug.generator')->generate(\StringUtil::prepareSlug($dc->activeRecord->title), $slugOptions);
+        }
+
+        return $varValue;
     }
 }

@@ -31,3 +31,13 @@ $GLOBALS['TL_LANG']['tl_showcase_category']['title'] = [
     'Titel',
     'Titel des Kategorie'
 ];
+
+$GLOBALS['TL_LANG']['tl_showcase_category']['isotopeFilter'] = [
+    'Isotope-Filter überschreiben',
+    'Überschreibt den Isotope-Filter und ermöglicht erweiterte Filterfunktionen'
+];
+
+$GLOBALS['TL_LANG']['tl_showcase_category']['alias'] = [
+    'Alias',
+    'Vergeben Sie einen Alias für diese Kategorie. Dieser wird in Isotope verwendet.'
+];
