@@ -100,8 +100,10 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
     // Palettes
     'palettes' => array
     (
-        '__selector__'                => array(''),
-        'default'                     => '{general_legend},title;'
+        '__selector__'                => array('type'),
+        'default'                     => '{general_legend},title;', // TODO
+        'regular'                     => '{general_legend},title;', // TODO
+        'subpage'                     => '{general_legend},title;', // TODO
     ),
 
     // Subpalettes
@@ -148,7 +150,19 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
-        )
+        ),
+        'type' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['type'],
+            'default'                 => 'text',
+            'exclude'                 => true,
+            'filter'                  => true,
+            'inputType'               => 'select',
+            'options_callback'        => array('tl_content', 'getContentElements'),
+            'reference'               => &$GLOBALS['TL_LANG']['CTE'],
+            'eval'                    => array('helpwizard'=>true, 'chosen'=>true, 'submitOnChange'=>true, 'tl_class'=>'w50'),
+            'sql'                     => "varchar(64) NOT NULL default ''"
+        ),
     )
 );
 

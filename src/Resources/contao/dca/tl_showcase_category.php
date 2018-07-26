@@ -36,9 +36,12 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
     (
         'sorting' => array
         (
-            'mode'                    => 5,
-            'fields'                  => array('title'),
-            'flag'                    => 1
+            'mode'                    => 4,
+            'panelLayout'             => 'filter;search,limit',
+            'fields'                  => array('sorting'),
+            'flag'                    => 1,
+            'child_record_callback'   => array('tl_content', 'addCteType') // todo
+
         ),
         'label' => array
         (
@@ -100,8 +103,8 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
     // Palettes
     'palettes' => array
     (
-        '__selector__'                => array(''),
-        'default'                     => '{general_legend},title;'
+        '__selector__'                => array(),
+        'default'                     => '{general_legend},title;',
     ),
 
     // Subpalettes
@@ -120,6 +123,10 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
         'pid' => array
         (
             'sql'                     => "int(10) unsigned NOT NULL"
+        ),
+        'sorting' => array
+        (
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
         'tstamp' => array
         (
