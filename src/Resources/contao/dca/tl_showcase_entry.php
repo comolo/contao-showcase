@@ -9,6 +9,7 @@
  * @license   proprietary
  */
 
+use Comolo\ShowcaseBundle\DcaTable\TlShowcaseEntry;
 
 /**
  * Table tl_showcase_folder
@@ -101,9 +102,9 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
     'palettes' => array
     (
         '__selector__'                => array('type'),
-        'default'                     => '{general_legend},title;', // TODO
-        'regular'                     => '{general_legend},title;', // TODO
-        'subpage'                     => '{general_legend},title;', // TODO
+        'default'                     => '{general_legend},title,type;', // TODO
+        'regular'                     => '{general_legend},title,type;', // TODO
+        'subpage'                     => '{general_legend},title,type;', // TODO
     ),
 
     // Subpalettes
@@ -135,14 +136,14 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
-        'title' => array
+        /*'title' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['title'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
-        ),
+        ),*/
         'publishingDate' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['publishingDate'],
@@ -153,16 +154,15 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
         ),
         'type' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['type'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['type'],
             'default'                 => 'text',
             'exclude'                 => true,
             'filter'                  => true,
             'inputType'               => 'select',
-            'options_callback'        => array('tl_content', 'getContentElements'),
-            'reference'               => &$GLOBALS['TL_LANG']['CTE'],
+            'options_callback'        => array(TlShowcaseEntry::class, 'getShowcaseElements'),
+            'reference'               => &$GLOBALS['TL_LANG']['tl_showcase_entry']['types'], // TODO
             'eval'                    => array('helpwizard'=>true, 'chosen'=>true, 'submitOnChange'=>true, 'tl_class'=>'w50'),
             'sql'                     => "varchar(64) NOT NULL default ''"
         ),
     )
 );
-

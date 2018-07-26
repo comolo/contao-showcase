@@ -31,3 +31,15 @@ $GLOBALS['TL_LANG']['tl_showcase_entry']['title'] = [
     'Titel',
     'Titel des Showcase'
 ];
+
+
+/*
+ * Showcase types
+ */
+$GLOBALS['TL_LANG']['tl_showcase_entry']['types'] = [
+    'regular' => '',
+    'subpage' => '',
+];
+
+$GLOBALS['TL_LANG']['tl_showcase_entry']['type'] = ['Elementtyp', 'Bitte wählen Sie den Typ des Showcase Elements'];
+
