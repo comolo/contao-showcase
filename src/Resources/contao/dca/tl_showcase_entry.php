@@ -37,8 +37,8 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
         'sorting' => array
         (
             'mode'                    => 1,
-            'fields'                  => array('title'),
-            'flag'                    => 1
+            'fields'                  => array('publishingDate'),
+            'flag'                    => 6
         ),
         'label' => array
         (
@@ -133,6 +133,22 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
+        'title' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['title'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'publishingDate' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['publishingDate'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        )
     )
 );
 

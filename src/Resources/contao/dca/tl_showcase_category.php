@@ -36,7 +36,7 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
     (
         'sorting' => array
         (
-            'mode'                    => 1,
+            'mode'                    => 5,
             'fields'                  => array('title'),
             'flag'                    => 1
         ),
