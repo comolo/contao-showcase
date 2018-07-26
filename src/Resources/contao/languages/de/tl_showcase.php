@@ -3,8 +3,8 @@
 $GLOBALS['TL_LANG']['tl_showcase']['general_legend'] = 'Allgemein';
 
 $GLOBALS['TL_LANG']['tl_showcase']['new'] = [
-    'Showcase-Ordner anlegen',
-    'Neuen Showcase-Ordner anlegen'
+    'Neuer Showcase-Ordner',
+    'Einen neuen Showcase-Ordner anlegen'
 ];
 
 $GLOBALS['TL_LANG']['tl_showcase']['delete'] = [

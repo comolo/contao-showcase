@@ -3,7 +3,7 @@
 $GLOBALS['TL_LANG']['tl_showcase_entry']['general_legend'] = 'Allgemein';
 
 $GLOBALS['TL_LANG']['tl_showcase_entry']['new'] = [
-    'Showcase anlegen',
+    'Neues Showcase',
     'Neues Showcase anlegen'
 ];
 

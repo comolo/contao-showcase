@@ -3,7 +3,7 @@
 $GLOBALS['TL_LANG']['tl_showcase_category']['general_legend'] = 'Allgemein';
 
 $GLOBALS['TL_LANG']['tl_showcase_category']['new'] = [
-    'Kategorie anlegen',
+    'Neue Kategorie',
     'Neue Kategorie anlegen'
 ];
 
