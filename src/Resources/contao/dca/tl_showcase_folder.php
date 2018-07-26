@@ -57,17 +57,17 @@ $GLOBALS['TL_DCA']['tl_showcase_folder'] = array
         ),
         'operations' => array
         (
-            'edit' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['edit'],
-                'href'                => 'act=edit',
-                'icon'                => 'edit.svg',
-            ),
             'entries' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['entries'],
                 'href'                => 'table=tl_showcase_entry',
-                'icon'                => 'articles.svg'
+                'icon'                => 'edit.svg'
+            ),
+            'edit' => array
+            (
+                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['edit'],
+                'href'                => 'act=edit',
+                'icon'                => 'header.svg',
             ),
             'categories' => array
             (
