@@ -63,12 +63,6 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
                 'href'                => 'act=edit',
                 'icon'                => 'edit.svg',
             ),
-            'documents' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_entry']['documents'],
-                'href'                => 'table=tl_immoverwaltung_document',
-                'icon'                => 'folderC.svg'
-            ),
             'copy' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_showcase_entry']['copy'],

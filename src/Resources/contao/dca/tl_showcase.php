@@ -11,9 +11,9 @@
 
 
 /**
- * Table tl_showcase_folder
+ * Table tl_showcase
  */
-$GLOBALS['TL_DCA']['tl_showcase_folder'] = array
+$GLOBALS['TL_DCA']['tl_showcase'] = array
 (
 
     // Config
@@ -59,38 +59,38 @@ $GLOBALS['TL_DCA']['tl_showcase_folder'] = array
         (
             'entries' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['entries'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_showcase']['entries'],
                 'href'                => 'table=tl_showcase_entry',
                 'icon'                => 'edit.svg'
             ),
             'edit' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['edit'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_showcase']['edit'],
                 'href'                => 'act=edit',
                 'icon'                => 'header.svg',
             ),
             'categories' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['categories'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_showcase']['categories'],
                 'href'                => 'table=tl_showcase_category',
                 'icon'                => 'folderC.svg'
             ),
             'copy' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['copy'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_showcase']['copy'],
                 'href'                => 'act=copy',
                 'icon'                => 'copy.gif'
             ),
             'delete' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['delete'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_showcase']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
             ),
             'show' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['show'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_showcase']['show'],
                 'href'                => 'act=show',
                 'icon'                => 'show.gif'
             )
@@ -135,7 +135,7 @@ $GLOBALS['TL_DCA']['tl_showcase_folder'] = array
         ),
         'title' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_folder']['title'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase']['title'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),

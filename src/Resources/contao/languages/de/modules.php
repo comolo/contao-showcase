@@ -13,7 +13,7 @@
 /**
  * Back end modules
  */
-$GLOBALS['TL_LANG']['MOD']['showcase_folder'] = array('Showcase', 'Showcases anlegen und verwalten');
+$GLOBALS['TL_LANG']['MOD']['showcase'] = array('Showcase', 'Showcases anlegen und verwalten');
 
 
 /**
