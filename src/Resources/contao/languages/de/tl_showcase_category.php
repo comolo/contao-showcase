@@ -41,3 +41,14 @@ $GLOBALS['TL_LANG']['tl_showcase_category']['alias'] = [
     'Alias',
     'Vergeben Sie einen Alias für diese Kategorie. Dieser wird in Isotope verwendet.'
 ];
+
+$GLOBALS['TL_LANG']['tl_showcase_category']['default'] = [
+    'Standard-Kategorie',
+    'Bitte anklicken, falls diese Kategorie im Frontend standardmäßig ausgewählt sein soll.'
+];
+
+$GLOBALS['TL_LANG']['tl_showcase_category']['isotopeSorting'] = [
+    'Isotope-Sortierung überschreiben',
+    'Überschreibt die Isotope-Sortierung und ermöglicht erweiterte Sortierfunktionen'
+];
+

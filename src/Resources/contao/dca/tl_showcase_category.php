@@ -107,7 +107,7 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
     'palettes' => array
     (
         '__selector__'                => array(),
-        'default'                     => '{general_legend},title,alias,isotopeFilter;',
+        'default'                     => '{general_legend},title,alias,isotopeFilter,isotopeSorting,default;',
     ),
 
     // Subpalettes
@@ -160,8 +160,24 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['isotopeFilter'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>''),
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'isotopeSorting' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['isotopeSorting'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50 clr'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'default' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['default'],
+            'exclude'                 => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>1, 'tl_class'=>''),
+            'sql'                     => "tinyint(1) NOT NULL default ''"
         ),
     )
 );
