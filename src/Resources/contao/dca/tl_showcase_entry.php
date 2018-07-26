@@ -160,7 +160,7 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
             'filter'                  => true,
             'inputType'               => 'select',
             'options_callback'        => array(TlShowcaseEntry::class, 'getShowcaseElements'),
-            'reference'               => &$GLOBALS['TL_LANG']['tl_showcase_entry']['types'], // TODO
+            'reference'               => &$GLOBALS['TL_LANG']['tl_showcase_entry']['types'],
             'eval'                    => array('helpwizard'=>true, 'chosen'=>true, 'submitOnChange'=>true, 'tl_class'=>'w50'),
             'sql'                     => "varchar(64) NOT NULL default ''"
         ),

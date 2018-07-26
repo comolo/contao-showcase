@@ -9,6 +9,7 @@
  * @license   proprietary
  */
 
+use Comolo\ShowcaseBundle\DcaTable\TlShowcaseCategory;
 
 /**
  * Table tl_showcase_folder
@@ -40,7 +41,7 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'panelLayout'             => 'filter;search,limit',
             'fields'                  => array('sorting'),
             'flag'                    => 1,
-            'child_record_callback'   => array('tl_content', 'addCteType') // todo
+            'child_record_callback'   => array(TlShowcaseCategory::class, 'addCteType')
 
         ),
         'label' => array
