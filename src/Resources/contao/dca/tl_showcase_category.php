@@ -41,7 +41,8 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'panelLayout'             => 'filter;search,limit',
             'fields'                  => array('sorting'),
             'flag'                    => 1,
-            'child_record_callback'   => array(TlShowcaseCategory::class, 'addCteType')
+            'child_record_callback'   => array(TlShowcaseCategory::class, 'addCteType'),
+            'headerFields'            => array('title'),
 
         ),
         'label' => array

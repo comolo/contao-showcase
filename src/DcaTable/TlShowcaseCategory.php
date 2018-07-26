@@ -18,6 +18,6 @@ class TlShowcaseCategory
 {
     public function addCteType()
     {
-
+        return '<p>DEBUG</p>';
     }
 }
