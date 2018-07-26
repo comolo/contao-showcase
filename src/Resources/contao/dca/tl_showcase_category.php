@@ -148,7 +148,7 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['alias'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('rgxp'=>'folderalias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50 clr'),
+            'eval'                    => array('rgxp'=>'folderalias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''",
             'save_callback' => array
             (
@@ -160,7 +160,7 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['isotopeFilter'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50'),
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50 clr'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
         'isotopeSorting' => array
@@ -168,7 +168,7 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['isotopeSorting'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50 clr'),
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
         'default' => array
@@ -176,7 +176,7 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['default'],
             'exclude'                 => true,
             'inputType'               => 'checkbox',
-            'eval'                    => array('mandatory'=>false, 'maxlength'=>1, 'tl_class'=>''),
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>1, 'tl_class'=>'clr'),
             'sql'                     => "tinyint(1) NOT NULL default ''"
         ),
     )
