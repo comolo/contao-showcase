@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b298521d5504ae94c27316338113204f",
+    "content-hash": "b617245f337f73aa05c2644db209a743",
     "packages": [
         {
             "name": "ausi/slug-generator",

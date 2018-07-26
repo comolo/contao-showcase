@@ -10,6 +10,8 @@
  */
 namespace Comolo\ShowcaseBundle\DcaTable;
 
+use Ausi\SlugGenerator\SlugGenerator;
+
 /**
  * tl_showcase_entry
  *
@@ -41,8 +43,8 @@ class TlShowcaseCategory
         // Generate an alias if there is none
         if ($varValue == '')
         {
-            $slugOptions = array();
-            $varValue = \System::getContainer()->get('contao.slug.generator')->generate(\StringUtil::prepareSlug($dc->activeRecord->title), $slugOptions);
+            //TODO: use \System::getContainer()->get('contao.slug.generator')->generate
+            $varValue =  (new SlugGenerator)->generate($dc->activeRecord->title);
         }
 
         return $varValue;
