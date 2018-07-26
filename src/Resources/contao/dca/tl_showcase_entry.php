@@ -123,6 +123,10 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
         (
             'sql'                     => "int(10) unsigned NOT NULL auto_increment"
         ),
+        'pid' => array
+        (
+            'sql'                     => "int(10) unsigned NOT NULL"
+        ),
         'tstamp' => array
         (
             'sql'                     => "int(10) unsigned NOT NULL default '0'"

@@ -9,9 +9,7 @@
  * @license   proprietary
  */
 
-$GLOBALS['BE_MOD']['showcase'] = [
-    'folder' => [
-        'tables' => ['tl_showcase_folder', 'tl_showcase_entry', 'tl_showcase_category'],
-        #'download' => ['tl_showcase_entry', 'downloadSomething']
-    ],
+$GLOBALS['BE_MOD']['content']['showcase_folder'] = [
+    'tables' => ['tl_showcase_folder', 'tl_showcase_entry', 'tl_showcase_category'],
+    #'download' => ['tl_showcase_entry', 'downloadSomething']
 ];
