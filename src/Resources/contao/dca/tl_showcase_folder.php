@@ -67,13 +67,13 @@ $GLOBALS['TL_DCA']['tl_showcase_folder'] = array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['entries'],
                 'href'                => 'table=tl_showcase_entry',
-                'icon'                => 'folderC.svg'
+                'icon'                => 'articles.svg'
             ),
             'categories' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_showcase_folder']['categories'],
                 'href'                => 'table=tl_showcase_category',
-                'icon'                => 'folderB.svg'
+                'icon'                => 'folderC.svg'
             ),
             'copy' => array
             (
