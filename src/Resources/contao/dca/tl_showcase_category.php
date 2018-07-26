@@ -176,8 +176,8 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['default'],
             'exclude'                 => true,
             'inputType'               => 'checkbox',
-            'eval'                    => array('mandatory'=>false, 'maxlength'=>1, 'tl_class'=>'clr'),
-            'sql'                     => "tinyint(1) NOT NULL default ''"
+            'eval'                    => array('doNotCopy'=>true, 'mandatory'=>false, 'maxlength'=>1, 'tl_class'=>'clr w50 m12'),
+            'sql'                     => "char(1) NOT NULL default ''"
         ),
     )
 );
