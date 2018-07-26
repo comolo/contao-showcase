@@ -36,10 +36,9 @@ $GLOBALS['TL_LANG']['tl_showcase_entry']['title'] = [
 /*
  * Showcase types
  */
-$GLOBALS['TL_LANG']['tl_showcase_entry']['types'] = [
-    'regular' => '',
-    'subpage' => '',
-];
+$GLOBALS['TL_LANG']['tl_showcase_entry']['types'] = [];
+$GLOBALS['TL_LANG']['tl_showcase_entry']['types']['regular'] = ['Standard', 'Darstellung der Referenz in der Lightbox'];
+$GLOBALS['TL_LANG']['tl_showcase_entry']['types']['subpage'] = ['Unterseite', 'Darstellung der Referenz auf einer Unterseite'];
 
 $GLOBALS['TL_LANG']['tl_showcase_entry']['type'] = ['Elementtyp', 'Bitte wählen Sie den Typ des Showcase Elements'];
 
