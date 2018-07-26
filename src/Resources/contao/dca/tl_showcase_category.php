@@ -20,7 +20,7 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
     'config' => array
     (
         'dataContainer'               => 'Table',
-        'ptable'                      => 'tl_showcase_folder',
+        'ptable'                      => 'tl_showcase',
         'enableVersioning'            => true,
         'sql' => array
         (
