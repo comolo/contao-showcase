@@ -8,7 +8,6 @@
 
 namespace Comolo\ShowcaseBundle\Model;
 
-
 class ShowcaseCategoryModel extends \Model
 {
     /**

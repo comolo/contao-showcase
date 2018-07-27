@@ -54,7 +54,7 @@ class TlShowcaseEntry
      */
     public function getCategories(\DataContainer $dc)
     {
-        $categories = ShowcaseCategoryModel::findBy('pid', $dc->pid);
+        $categories = ShowcaseCategoryModel::findBy('pid', intval(\Input::get('pid')));
 
         $arrCategories = [];
         foreach ($categories as $category)

@@ -11,5 +11,6 @@
 
 $GLOBALS['BE_MOD']['content']['showcase'] = [
     'tables' => ['tl_showcase', 'tl_showcase_entry', 'tl_showcase_category', 'tl_content'],
-    #'download' => ['tl_showcase_entry', 'downloadSomething']
 ];
+
+$GLOBALS['TL_MODELS']['tl_showcase_category'] = \Comolo\ShowcaseBundle\Model\ShowcaseCategoryModel::class;
