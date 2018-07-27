@@ -22,12 +22,12 @@ $GLOBALS['TL_LANG']['tl_showcase']['copy'] = [
     'Showcase-Ordner %s kopieren'
 ];
 
-$GLOBALS['TL_LANG']['tl_showcases']['entries'] = [
+$GLOBALS['TL_LANG']['tl_showcase']['entries'] = [
     'Showcases %s verwalten',
     'Showcases %s verwalten'
 ];
 
-$GLOBALS['TL_LANG']['tl_showcases']['categories'] = [
+$GLOBALS['TL_LANG']['tl_showcase']['categories'] = [
     'Kategorien %s verwalten',
     'Kategorien %s verwalten'
 ];

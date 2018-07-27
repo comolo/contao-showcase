@@ -179,6 +179,19 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'eval'                    => array('doNotCopy'=>true, 'mandatory'=>false, 'maxlength'=>1, 'tl_class'=>'clr w50 m12'),
             'sql'                     => "char(1) NOT NULL default ''"
         ),
+        /*
+         * TODO:
+         *  - Kurze Beschreibung
+         *  - Kategorien auswählen
+         *  - Thumbnail auswählen
+         *  - Lightbox-Foto auswählen / Youtube Link
+         *  - tl_content Elemente anlegbar machen
+         *  - Veröffentlichen ja / nein & von / bis
+         *
+         * Frontend Module:
+         *  - Listendarstellung
+         *  - Unterseitendarstellung
+         */
     )
 );
 
