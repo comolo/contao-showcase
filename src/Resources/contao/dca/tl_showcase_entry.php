@@ -253,9 +253,10 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
         'categories' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['categories'],
-            'inputType'               => 'select',
+            'inputType'               => 'checkboxWizard',
             'options_callback'        => [TlShowcaseEntry::class, 'getCategories'],
-            'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50 wizard')
+            'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50 wizard', 'multiple'=>true),
+            'sql'                     => "blob NULL",
         ),
     )
 );
