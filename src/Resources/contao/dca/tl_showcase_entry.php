@@ -250,5 +250,12 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
             'eval'                    => array('tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
+        'categories' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['categories'],
+            'inputType'               => 'select',
+            'options_callback'        => [TlShowcaseEntry::class, 'getCategories'],
+            'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50 wizard')
+        ),
     )
 );
