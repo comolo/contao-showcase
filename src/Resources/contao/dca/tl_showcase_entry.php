@@ -103,9 +103,9 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
     'palettes' => array
     (
         '__selector__'                => array('type','addUrl'),
-        'default'                     => '{general_legend},title,type,alias,publishingDate;{subheading_legend},subheadline;{content_legend},thumbnail,addUrl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
-        'regular'                     => '{general_legend},title,type,alias,publishingDate;{subheading_legend},subheadline;{content_legend},thumbnail,addUrl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
-        'subpage'                     => '{general_legend},title,type,alias,publishingDate;{subheading_legend},subheadline;{content_legend},thumbnail;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'default'                     => '{general_legend},title,type,alias,publishingDate;{subheading_legend},subheadline;{content_legend},thumbnail,addUrl;{categories_legend},categories;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'regular'                     => '{general_legend},title,type,alias,publishingDate;{subheading_legend},subheadline;{content_legend},thumbnail,addUrl;categories_legend},categories;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'subpage'                     => '{general_legend},title,type,alias,publishingDate;{subheading_legend},subheadline;{content_legend},thumbnail;categories_legend},categories;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
     ),
 
     // Subpalettes
