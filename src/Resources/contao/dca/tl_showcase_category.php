@@ -148,7 +148,7 @@ $GLOBALS['TL_DCA']['tl_showcase_category'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_category']['alias'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('rgxp'=>'folderalias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
+            'eval'                    => array('rgxp'=>'folderalias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50', 'unique' => true),
             'sql'                     => "varchar(255) NOT NULL default ''",
             'save_callback' => array
             (

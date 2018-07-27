@@ -8,7 +8,6 @@
  * @copyright 2018 Comolo GmbH <https://www.comolo.de/>
  * @license   proprietary
  */
-
 use Comolo\ShowcaseBundle\DcaTable\TlShowcaseEntry;
 
 /**
@@ -22,12 +21,14 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
     (
         'dataContainer'               => 'Table',
         'ptable'                      => 'tl_showcase',
+        'ctable'                      => array('tl_content'),
         'enableVersioning'            => true,
         'sql' => array
         (
             'keys' => array
             (
-                'id' => 'primary'
+                'id' => 'primary',
+                'alias' => 'index',
             )
         ),
     ),
@@ -101,16 +102,16 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
     // Palettes
     'palettes' => array
     (
-        '__selector__'                => array('type'),
-        'default'                     => '{general_legend},title,type;', // TODO
-        'regular'                     => '{general_legend},title,type;', // TODO
-        'subpage'                     => '{general_legend},title,type;', // TODO
+        '__selector__'                => array('type','addUrl'),
+        'default'                     => '{general_legend},title,type,alias,publishingDate;{subheading_legend},subheadline;{content_legend},thumbnail,addUrl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'regular'                     => '{general_legend},title,type,alias,publishingDate;{subheading_legend},subheadline;{content_legend},thumbnail,addUrl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'subpage'                     => '{general_legend},title,type,alias,publishingDate;{subheading_legend},subheadline;{content_legend},thumbnail;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
     ),
 
     // Subpalettes
     'subpalettes' => array
     (
-        ''                            => ''
+        'addUrl'                            => 'url,target'
     ),
 
     // Fields
@@ -128,6 +129,18 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
         (
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
+        'alias' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['alias'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp'=>'folderalias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50', 'unique' => true),
+            'sql'                     => "varchar(255) NOT NULL default ''",
+            'save_callback' => array
+            (
+                array(TlShowcaseEntry::class, 'generateAlias')
+            ),
+        ),
         'title' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['title'],
@@ -136,21 +149,18 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
-        /*'title' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['title'],
-            'exclude'                 => true,
-            'inputType'               => 'text',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
-            'sql'                     => "varchar(255) NOT NULL default ''"
-        ),*/
         'publishingDate' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['publishingDate'],
+            'default'                 => time(),
             'exclude'                 => true,
+            'filter'                  => true,
+            'sorting'                 => true,
+            'flag'                    => 8,
             'inputType'               => 'text',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
-            'sql'                     => "varchar(255) NOT NULL default ''"
+            'eval'                    => array('rgxp'=>'date', 'mandatory'=>true, 'doNotCopy'=>true, 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+            'load_callback'           => [[TlShowcaseEntry::class, 'loadDate']],
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
         'type' => array
         (
@@ -163,6 +173,82 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
             'reference'               => &$GLOBALS['TL_LANG']['tl_showcase_entry']['types'],
             'eval'                    => array('helpwizard'=>true, 'chosen'=>true, 'submitOnChange'=>true, 'tl_class'=>'w50'),
             'sql'                     => "varchar(64) NOT NULL default ''"
+        ),
+        'subheadline' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['subheadline'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('maxlength'=>255, 'tl_class'=>'long'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'published' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['published'],
+            'exclude'                 => true,
+            'filter'                  => true,
+            'flag'                    => 1,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('doNotCopy'=>true),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'start' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['start'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+            'sql'                     => "varchar(10) NOT NULL default ''"
+        ),
+        'stop' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['stop'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+            'sql'                     => "varchar(10) NOT NULL default ''"
+        ),
+        'thumbnail' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['thumbnail'],
+            'exclude'                 => true,
+            'inputType'               => 'fileTree',
+            'eval'                    => array('fieldType'=>'radio', 'filesOnly'=>true, 'extensions'=>\Config::get('validImageTypes'), 'mandatory'=>true),
+            'sql'                     => "binary(16) NULL"
+        ),
+        'addUrl' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['addUrl'],
+            'exclude'                 => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('submitOnChange'=>true),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'url' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['MSC']['url'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory'=>true, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'addWizardClass'=>false, 'tl_class'=>'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'target' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['MSC']['target'],
+            'exclude'                 => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50 m12'),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'cssClass' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_showcase_entry']['cssClass'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
         ),
     )
 );

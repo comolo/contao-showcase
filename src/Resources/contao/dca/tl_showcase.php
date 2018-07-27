@@ -20,13 +20,13 @@ $GLOBALS['TL_DCA']['tl_showcase'] = array
     'config' => array
     (
         'dataContainer'               => 'Table',
-        'ctable'                      => ['tl_showcase_entry', 'tl_showcase_category'],
+        'ctable'                      => ['tl_showcase_entry', 'tl_showcase_category', 'tl_content'],
         'enableVersioning'            => true,
         'sql' => array
         (
             'keys' => array
             (
-                'id' => 'primary'
+                'id' => 'primary',
             )
         ),
     ),

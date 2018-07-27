@@ -10,6 +10,8 @@
  */
 namespace Comolo\ShowcaseBundle\DcaTable;
 
+use Comolo\ShowcaseBundle\DcaTable\Helper\AliasGenerator;
+
 /**
  * tl_showcase_entry
  *
@@ -18,6 +20,8 @@ namespace Comolo\ShowcaseBundle\DcaTable;
  */
 class TlShowcaseEntry
 {
+    use AliasGenerator;
+
     /**
      * Types of showcase elements
      */
@@ -29,4 +33,15 @@ class TlShowcaseEntry
         ];
     }
 
+    /**
+     * Set the timestamp to 00:00:00 (see #26)
+     *
+     * @source \tl_news::loadDate
+     * @param integer $value
+     * @return integer
+     */
+    public function loadDate($value)
+    {
+        return strtotime(date('Y-m-d', $value) . ' 00:00:00');
+    }
 }

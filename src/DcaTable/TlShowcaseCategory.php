@@ -10,7 +10,7 @@
  */
 namespace Comolo\ShowcaseBundle\DcaTable;
 
-use Ausi\SlugGenerator\SlugGenerator;
+use Comolo\ShowcaseBundle\DcaTable\Helper\AliasGenerator;
 
 /**
  * tl_showcase_entry
@@ -20,6 +20,8 @@ use Ausi\SlugGenerator\SlugGenerator;
  */
 class TlShowcaseCategory
 {
+    use AliasGenerator;
+
     /**
      * Return legend of category entries
      *
@@ -29,24 +31,5 @@ class TlShowcaseCategory
     public function addCteType($arrRow)
     {
         return $arrRow['title'];
-    }
-
-    /**
-     * Generate a category alias
-     *
-     * @param $varValue
-     * @param \DataContainer $dc
-     * @return mixed
-     */
-    public function generateAlias($varValue, \DataContainer $dc)
-    {
-        // Generate an alias if there is none
-        if ($varValue == '')
-        {
-            //TODO: use \System::getContainer()->get('contao.slug.generator')->generate
-            $varValue =  (new SlugGenerator)->generate($dc->activeRecord->title);
-        }
-
-        return $varValue;
     }
 }

@@ -10,6 +10,6 @@
  */
 
 $GLOBALS['BE_MOD']['content']['showcase'] = [
-    'tables' => ['tl_showcase', 'tl_showcase_entry', 'tl_showcase_category'],
+    'tables' => ['tl_showcase', 'tl_showcase_entry', 'tl_showcase_category', 'tl_content'],
     #'download' => ['tl_showcase_entry', 'downloadSomething']
 ];
