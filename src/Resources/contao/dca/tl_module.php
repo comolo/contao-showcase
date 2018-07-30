@@ -11,5 +11,5 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['showcase'] = [
     'relation'                => ['type'=>'hasOne', 'load'=>'eager'],
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['showcase_overview'] = '{type_legend},type,headline;{content_legend},showcase;{image_legend},imgSize;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['showcase_detail'] = '{type_legend},type,headline;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['showcase_overview'] = '{title_legend},name,headline,type;{config_legend},showcase;{image_legend},imgSize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['showcase_detail'] = '{title_legend},name,headline,type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';

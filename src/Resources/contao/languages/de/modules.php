@@ -19,4 +19,5 @@ $GLOBALS['TL_LANG']['MOD']['showcase'] = array('Showcases', 'Showcases anlegen u
 /**
  * Front end modules
  */
-#$GLOBALS['TL_LANG']['FMD'][''] = array('', '');
+$GLOBALS['TL_LANG']['FMD']['showcase_overview'] = ['Showcases Übersicht', 'Dieses Modul zeigt alle Showcases in einer Übersicht.'];
+$GLOBALS['TL_LANG']['FMD']['showcase_detail'] = ['Showcases Detailansicht', 'Dieses Modul zeigt einzelne Showcases in der Detailansicht.'];

@@ -15,6 +15,7 @@ $GLOBALS['BE_MOD']['content']['showcase'] = [
 
 $GLOBALS['TL_MODELS']['tl_showcase_category'] = \Comolo\ShowcaseBundle\Model\ShowcaseCategoryModel::class;
 $GLOBALS['TL_MODELS']['tl_showcase_entry'] = \Comolo\ShowcaseBundle\Model\ShowcaseEntryModel::class;
+$GLOBALS['TL_MODELS']['tl_showcase'] = \Comolo\ShowcaseBundle\Model\ShowcaseModel::class;
 
 $GLOBALS['FE_MOD']['miscellaneous']['showcase_overview'] = \Comolo\ShowcaseBundle\FrontendModule\ShowcaseOverview::class;
 $GLOBALS['FE_MOD']['miscellaneous']['showcase_detail'] = \Comolo\ShowcaseBundle\FrontendModule\ShowcaseOverview::class;
