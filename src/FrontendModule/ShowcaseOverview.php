@@ -56,16 +56,15 @@ class ShowcaseOverview extends Module
     {
         $showcases = ShowcaseEntryModel::findBy('pid', $this->showcase, ['order' => 'id ASC']);
 
-        /*
         foreach ($showcases as $showcase)
         {
             $categories = unserialize($showcase->categories);
+            $showcase->strCategories = '';
 
             foreach ($categories as $category) {
-                $showcase->cssClass .= $category;
+                $showcase->strCategories .= ' '.$category;
             }
         }
-        */
 
         return $showcases;
     }
