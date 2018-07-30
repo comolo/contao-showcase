@@ -1,0 +1,27 @@
+<div class="<?php echo $this->class; ?> block">
+
+    <?php if ($this->headline): ?>
+        <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+    <?php endif; ?>
+
+
+    <div class="categories">
+        <?php foreach ($this->categories as $category): ?>
+            <a href="#" data-category="<?php echo $category->id; ?>" data-filter="<?php echo $category->isotopeFilter; ?>" data-sortby="<?php echo $category->isotopeSorting; ?>">
+                <?php echo $category->title; ?>
+            </a>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="showcases">
+        <?php foreach ($this->showcases as $showcase): ?>
+
+            <div class="showcase <?php echo $showcase->cssClass; ?>" data-categories="<?php implode(' ', deserialize($showcase->categories)); ?>">
+                <div>IMAGE</div>
+                <h3><?php echo $showcase->title; ?></h3>
+                <span><?php echo $showcase->teaser; ?></span>
+            </div>
+
+        <?php endforeach; ?>
+    </div>
+</div>
