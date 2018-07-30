@@ -58,12 +58,25 @@ class ShowcaseOverview extends Module
 
         foreach ($showcases as $showcase)
         {
+            // Categories
             $categories = unserialize($showcase->categories);
             $showcase->strCategories = '';
 
             foreach ($categories as $category) {
                 $showcase->strCategories .= ' '.$category;
             }
+
+            // Image
+            /*$showcase->arrImage = [
+                // margin
+                // href
+                // srcset
+                // sizes
+                // src
+                // height
+                //
+
+            ];*/
         }
 
         return $showcases;

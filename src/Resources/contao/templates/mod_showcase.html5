@@ -18,7 +18,7 @@
 
             <div class="showcase <?php echo $showcase->cssClass; ?>" data-categories="<?php echo $showcase->strCategories; ?>">
 
-                <?php $this->insert('image', $showcase->thumbnail); ?>
+                <?php /*$this->insert('image', $showcase->arrImage); */ ?>
 
                 <h3><?php echo $showcase->title; ?></h3>
                 <span><?php echo $showcase->teaser; ?></span>
