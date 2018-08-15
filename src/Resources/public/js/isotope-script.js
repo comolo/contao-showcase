@@ -7,7 +7,10 @@ jQuery(function ($) {
     // Initialize
     var $showcases = $('.mod_showcase_overview .showcases').isotope({
         itemSelector: '.showcase',
-        layoutMode: 'fitRows' // also possible: fitRows
+        layoutMode: 'fitRows',
+        fitRows: {
+            gutter: '.gutter-sizer'
+        }
     });
 
     // Filter selector
