@@ -1,0 +1,13 @@
+<div class="showcase <?php echo $this->cssClass; ?>">
+
+    <?php if ($this->addImage): ?>
+        <?php $this->insert('image', $this->arrImage); ?>
+    <?php endif; ?>
+
+    <?php if ($this->addImage): ?>
+        <img src="<?php echo $this->src; ?>" alt="<?php echo $this->alt; ?>" />
+    <?php endif; ?>
+
+    <h3><?php echo $this->title; ?></h3>
+    <span><?php echo $this->teaser; ?></span>
+</div>

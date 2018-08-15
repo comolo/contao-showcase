@@ -14,16 +14,6 @@
     </div>
 
     <div class="showcases">
-        <?php foreach ($this->showcases as $showcase): ?>
-
-            <div class="showcase <?php echo $showcase->cssClass; ?>" data-categories="<?php echo $showcase->strCategories; ?>">
-
-                <?php /*$this->insert('image', $showcase->arrImage); */ ?>
-
-                <h3><?php echo $showcase->title; ?></h3>
-                <span><?php echo $showcase->teaser; ?></span>
-            </div>
-
-        <?php endforeach; ?>
+        <?php echo $this->strShowcases; ?>
     </div>
 </div>
