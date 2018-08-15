@@ -7,7 +7,7 @@
 
     <div class="categories">
         <?php foreach ($this->categories as $category): ?>
-            <a href="#" data-category="<?php echo $category->id; ?>" data-filter="<?php echo $category->isotopeFilter; ?>" data-sortby="<?php echo $category->isotopeSorting; ?>">
+            <a href="#" data-category="<?php echo $category->id; ?>" data-filter="<?php echo $category->isotopeFilter; ?>" data-sortby="<?php echo $category->isotopeSorting; ?>" class="<?php if($category->default != '') echo 'active'; ?>">
                 <?php echo $category->title; ?>
             </a>
         <?php endforeach; ?>

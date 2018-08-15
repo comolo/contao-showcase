@@ -13,6 +13,9 @@ jQuery(function ($) {
     // Filter selector
     $filter = $('.mod_showcase_overview .categories a');
 
+    // Trigger default filter
+    $filter.find('.active').trigger();
+
     // Trigger filter action
     $filter.click(function () {
 
