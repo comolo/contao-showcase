@@ -7,14 +7,15 @@ jQuery(function ($) {
     // Initialize
     var $showcases = $('.mod_showcase_overview .showcases').isotope({
         itemSelector: '.showcase',
-        layoutMode: 'fitColumns' // also possible: fitRows
+        layoutMode: 'fitRows' // also possible: fitRows
     });
 
     // Filter selector
-    $filter = $('.mod_showcase_overview .categories a[data-category]');
+    $filter = $('.mod_showcase_overview .categories a');
 
     // Trigger filter action
     $filter.click(function () {
+
         var $link = $(this);
         var isotopeArray = {};
 
@@ -23,7 +24,7 @@ jQuery(function ($) {
             isotopeArray["filter"] = $link.data("filter");
         }
         else {
-            isotopeArray["filter"] = ".cat" + $link.data("category");
+            isotopeArray["filter"] = ".cat-" + $link.data("category");
         }
 
         // Build sort-by
@@ -33,6 +34,12 @@ jQuery(function ($) {
 
         // Push changes to isotope function
         $showcases.isotope(isotopeArray);
+
+        $filter.removeClass("active");
+        $link.addClass("active");
+
+        console.log('filter: '+ isotopeArray["filter"]);
+        console.log('sortBy: '+ isotopeArray["sortBy"]);
 
         // Stop further action on this link
         return false;
