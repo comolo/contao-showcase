@@ -14,6 +14,7 @@
     </div>
 
     <div class="showcases">
+        <div class="gutter-sizer"></div>
         <?php echo $this->strShowcases; ?>
     </div>
 </div>
