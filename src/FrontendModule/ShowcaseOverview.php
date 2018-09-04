@@ -40,6 +40,10 @@ class ShowcaseOverview extends ShowcaseModule
         // Add folder navigation
         \Input::setGet('showcase', \Input::get('showcase'));
 
+        if (!empty(\Input::get('showcase'))) {
+            return '';
+        }
+
         // Add isotope JS library
         $GLOBALS['TL_JAVASCRIPT'][] = Environment::get('path').'/bundles/comoloshowcase/js/isotope.pkgd.min.js|static';
         $GLOBALS['TL_JAVASCRIPT'][] = Environment::get('path').'/bundles/comoloshowcase/js/isotope-script.js|static';

@@ -39,6 +39,10 @@ class ShowcaseDetail extends ShowcaseModule
         // Add folder navigation
         \Input::setGet('showcase', \Input::get('showcase'));
 
+        if (empty(\Input::get('showcase'))) {
+            return '';
+        }
+
         /** @var \PageModel $objPage */
         global $objPage;
 
