@@ -18,4 +18,4 @@ $GLOBALS['TL_MODELS']['tl_showcase_entry'] = \Comolo\ShowcaseBundle\Model\Showca
 $GLOBALS['TL_MODELS']['tl_showcase'] = \Comolo\ShowcaseBundle\Model\ShowcaseModel::class;
 
 $GLOBALS['FE_MOD']['miscellaneous']['showcase_overview'] = \Comolo\ShowcaseBundle\FrontendModule\ShowcaseOverview::class;
-$GLOBALS['FE_MOD']['miscellaneous']['showcase_detail'] = \Comolo\ShowcaseBundle\FrontendModule\ShowcaseOverview::class;
+$GLOBALS['FE_MOD']['miscellaneous']['showcase_detail'] = \Comolo\ShowcaseBundle\FrontendModule\ShowcaseDetail::class;

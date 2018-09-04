@@ -18,7 +18,9 @@
 
 
     <?php if ($this->hasLink): ?>
-    <a href="<?php echo $this->link; ?>" class="<?php echo $this->linkCss; ?>" target="<?php echo $this->linkTarget; ?>">
+        <a href="<?php echo $this->link; ?>" class="<?php echo $this->linkCss; ?>" target="<?php echo $this->linkTarget; ?>">
+            <h3><?php echo $this->title; ?></h3>
+        </a>
     <?php else: ?>
         <h3><?php echo $this->title; ?></h3>
     <? endif; ?>

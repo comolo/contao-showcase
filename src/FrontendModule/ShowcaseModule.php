@@ -17,7 +17,7 @@ abstract class ShowcaseModule extends Module
     protected function getShowcaseContents(ShowcaseEntryModel $showcase)
     {
         return \ContentModel::findBy(
-            ['ptable', 'pid'],
+            ['ptable=?', 'pid=?'],
             ['tl_showcase_entry', $showcase->id]
         );
     }
@@ -31,7 +31,7 @@ abstract class ShowcaseModule extends Module
     {
         /** @var $objPage \PageModel */
         global $objPage;
-        return $objPage->getFrontendUrl(sprintf('/showcase/%s', $showcase));
+        return $objPage->getFrontendUrl(sprintf('/showcase/%s', $showcase->alias));
     }
 
     /**
