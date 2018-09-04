@@ -3,6 +3,10 @@
  * Author Hendrik Obermayer
  */
 jQuery(function ($) {
+    $(".showcase-lightbox").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+});
+
+jQuery(function ($) {
 
     // Initialize on load
     $(window).load(function() {

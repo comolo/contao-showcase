@@ -27,9 +27,14 @@ $GLOBALS['TL_LANG']['tl_showcase_entry']['copy'] = [
     'Showcase %s kopieren'
 ];
 
-$GLOBALS['TL_LANG']['tl_showcase_entry']['edit'] = [
+$GLOBALS['TL_LANG']['tl_showcase_entry']['editheader'] = [
     'Showcase %s bearbeiten',
     'Showcase %s bearbeiten'
+];
+
+$GLOBALS['TL_LANG']['tl_showcase_entry']['edit'] = [
+    'Inhalte der Showcase %s bearbeiten',
+    'Inhalte der Showcase %s bearbeiten'
 ];
 
 $GLOBALS['TL_LANG']['tl_showcase_entry']['title'] = [

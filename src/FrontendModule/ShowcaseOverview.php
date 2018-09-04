@@ -13,7 +13,7 @@ use Module;
 use Comolo\ShowcaseBundle\Model\ShowcaseCategoryModel;
 use Environment;
 
-class ShowcaseOverview extends Module
+class ShowcaseOverview extends ShowcaseModule
 {
     /**
      * Template
@@ -37,6 +37,9 @@ class ShowcaseOverview extends Module
             return $this->compileBackend('### Showcase Overview ###');
         }
 
+        // Add folder navigation
+        \Input::setGet('showcase', \Input::get('showcase'));
+
         // Add isotope JS library
         $GLOBALS['TL_JAVASCRIPT'][] = Environment::get('path').'/bundles/comoloshowcase/js/isotope.pkgd.min.js|static';
         $GLOBALS['TL_JAVASCRIPT'][] = Environment::get('path').'/bundles/comoloshowcase/js/isotope-script.js|static';
@@ -45,23 +48,9 @@ class ShowcaseOverview extends Module
         $this->Template->strShowcases = $this->parseShowcases();
     }
 
-
-    /**
-     * Compile backend template
-     * @param $text
-     */
-    public function compileBackend($text)
-    {
-        $this->strTemplate          = 'be_wildcard';
-        $this->Template             = new \BackendTemplate($this->strTemplate);
-        $this->Template->title      = $this->headline;
-        $this->Template->wildcard   = $text;
-    }
-
     protected function parseShowcases()
     {
-        // TODO: sort out unpublished
-        $showcases = ShowcaseEntryModel::findBy('pid', $this->showcase, ['order' => 'id ASC']);
+        $showcases = ShowcaseEntryModel::findPublishedByPid($this->showcase, null, null, ['order' => 'id ASC']);
         $strOutput = '';
 
         foreach ($showcases as $showcase)
@@ -81,6 +70,30 @@ class ShowcaseOverview extends Module
         $categories = unserialize($showcase->categories);
         foreach ($categories as $category) {
             $objTemplate->cssClass .= ' cat-'.$category;
+        }
+
+        // Add Link
+        if ($showcase->addUrl == '1') {
+            $objTemplate->hasLink = true;
+
+            $objTemplate->link = $this->parseLink($showcase->url);
+
+            if ($showcase->target == '1') {
+                $objTemplate->linkCss = '';
+                $objTemplate->linkTarget = '_blank';
+            } else {
+                $objTemplate->linkCss = 'showcase-lightbox';
+                $objTemplate->linkTarget = '_self';
+            }
+        }
+
+        // Add content
+        if (count($this->getShowcaseContents($showcase)) > 0) {
+            $objTemplate->hasLink = true;
+            $objTemplate->link = $this->generateShowcaseUrl($showcase);
+
+            $objTemplate->linkCss = '';
+            $objTemplate->linkTarget = '_self';
         }
 
         // Add Image
@@ -122,5 +135,19 @@ class ShowcaseOverview extends Module
 
 
         return $objTemplate->parse();
+    }
+
+    protected function parseLink($strLink)
+    {
+        // Rewrite youtube links
+        if (strpos($strLink, 'https://www.youtube.com/watch') !== false) {
+            $strLink = str_replace('&#61;', '=', $strLink);
+            parse_str( parse_url(htmlspecialchars_decode($strLink), PHP_URL_QUERY ), $youtubeParams);
+            $youtubeId = $youtubeParams['v'];
+
+            return sprintf('https://www.youtube.com/embed/%s?rel=0&wmode=transparent&autoplay=1', $youtubeId);
+        }
+
+        return $strLink;
     }
 }

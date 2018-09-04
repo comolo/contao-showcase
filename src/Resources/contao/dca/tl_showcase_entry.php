@@ -10,6 +10,8 @@
  */
 use Comolo\ShowcaseBundle\DcaTable\TlShowcaseEntry;
 
+\System::loadLanguageFile('tl_content');
+
 /**
  * Table tl_showcase_folder
  */
@@ -60,11 +62,18 @@ $GLOBALS['TL_DCA']['tl_showcase_entry'] = array
         'operations' => array
         (
             'edit' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_entry']['edit'],
+			(
+				'label'               => &$GLOBALS['TL_LANG']['tl_showcase_entry']['edit'],
+				'href'                => 'table=tl_content',
+				'icon'                => 'edit.svg',
+				#'button_callback'     => array('tl_article', 'editArticle') #todo
+			),
+			'editheader' => array
+			(
+                'label'               => &$GLOBALS['TL_LANG']['tl_showcase_entry']['editheader'],
                 'href'                => 'act=edit',
-                'icon'                => 'edit.svg',
-            ),
+                'icon'                => 'header.svg',
+			),
             'copy' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_showcase_entry']['copy'],

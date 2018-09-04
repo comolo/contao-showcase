@@ -1,5 +1,11 @@
-<div class="<?php echo $this->class; ?> block">
+<?php $this->extend('block_searchable'); ?>
 
-    #### Overview ####
+<?php $this->block('content'); ?>
 
-</div>
+<?= $this->content; ?>
+
+<!-- indexer::stop -->
+<p class="back"><a href="<?= $this->referer ?>" title="<?= $this->back ?>"><?= $this->back ?></a></p>
+<!-- indexer::continue -->
+
+<?php $this->endblock(); ?>

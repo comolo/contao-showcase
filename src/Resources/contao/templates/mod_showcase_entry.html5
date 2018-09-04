@@ -1,13 +1,27 @@
 <div class="showcase <?php echo $this->cssClass; ?>">
 
+    <? /*
     <?php if ($this->addImage): ?>
         <?php $this->insert('image', $this->arrImage); ?>
     <?php endif; ?>
+  */ ?>
 
     <?php if ($this->addImage): ?>
-        <img src="<?php echo $this->src; ?>" alt="<?php echo $this->alt; ?>" />
+        <?php if ($this->hasLink): ?>
+            <a href="<?php echo $this->link; ?>" class="<?php echo $this->linkCss; ?>" target="<?php echo $this->linkTarget; ?>">
+                <img src="<?php echo $this->src; ?>" alt="<?php echo $this->alt; ?>" />
+            </a>
+        <?php else: ?>
+            <img src="<?php echo $this->src; ?>" alt="<?php echo $this->alt; ?>" />
+        <?php endif; ?>
     <?php endif; ?>
 
-    <h3><?php echo $this->title; ?></h3>
+
+    <?php if ($this->hasLink): ?>
+    <a href="<?php echo $this->link; ?>" class="<?php echo $this->linkCss; ?>" target="<?php echo $this->linkTarget; ?>">
+    <?php else: ?>
+        <h3><?php echo $this->title; ?></h3>
+    <? endif; ?>
+
     <span><?php echo $this->teaser; ?></span>
 </div>
