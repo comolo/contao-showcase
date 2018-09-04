@@ -23,18 +23,6 @@ abstract class ShowcaseModule extends Module
     }
 
     /**
-     * Generate a url to the showcase detail page
-     * @param ShowcaseEntryModel $showcase
-     * @return string
-     */
-    protected function generateShowcaseUrl(ShowcaseEntryModel $showcase)
-    {
-        /** @var $objPage \PageModel */
-        global $objPage;
-        return $objPage->getFrontendUrl(sprintf('/showcase/%s', $showcase->alias));
-    }
-
-    /**
      * Compile backend template
      * @param $text
      */

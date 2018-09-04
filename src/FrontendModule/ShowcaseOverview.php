@@ -154,4 +154,14 @@ class ShowcaseOverview extends ShowcaseModule
 
         return $strLink;
     }
+
+    /**
+     * Generate a url to the showcase detail page
+     * @param ShowcaseEntryModel $showcase
+     * @return string
+     */
+    protected function generateShowcaseUrl(ShowcaseEntryModel $showcase)
+    {
+        return \PageModel::findPublishedById($this->jumpTo)->getFrontendUrl(sprintf('/showcase/%s', $showcase->alias));
+    }
 }
