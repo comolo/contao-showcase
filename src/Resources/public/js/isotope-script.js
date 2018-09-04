@@ -4,53 +4,53 @@
  */
 jQuery(function ($) {
 
-    // Initialize
-    var $showcases = $('.mod_showcase_overview .showcases').isotope({
-        itemSelector: '.showcase',
-        layoutMode: 'fitRows',
-        fitRows: {
-            gutter: '.gutter-sizer'
-        }
-    });
+    // Initialize on load
+    $(window).load(function() {
 
-    // Filter selector
-    $filter = $('.mod_showcase_overview .categories a');
+        var $showcases = $('.mod_showcase_overview .showcases').isotope({
+            itemSelector: '.showcase',
+            layoutMode: 'fitRows',
+            fitRows: {
+                gutter: '.gutter-sizer'
+            }
+        });
 
-    // Trigger default filter
-    $(window).load(function(){
+        // Filter selector
+        $filter = $('.mod_showcase_overview .categories a');
+
+        // Trigger default filter
         $filter.find('.active').trigger();
-    });
 
+        // Trigger filter action
+        $filter.click(function () {
 
-    // Trigger filter action
-    $filter.click(function () {
+            var $link = $(this);
+            var isotopeArray = {};
 
-        var $link = $(this);
-        var isotopeArray = {};
+            // Build filter
+            if ($link.data("filter") !== "") {
+                isotopeArray["filter"] = $link.data("filter");
+            }
+            else {
+                isotopeArray["filter"] = ".cat-" + $link.data("category");
+            }
 
-        // Build filter
-        if ($link.data("filter") !== "") {
-            isotopeArray["filter"] = $link.data("filter");
-        }
-        else {
-            isotopeArray["filter"] = ".cat-" + $link.data("category");
-        }
+            // Build sort-by
+            if ($link.data("sortby") === "") {
+                isotopeArray["sortBy"] = $link.data("sortby");
+            }
 
-        // Build sort-by
-        if ($link.data("sortby") === "") {
-            isotopeArray["sortBy"] = $link.data("sortby");
-        }
+            // Push changes to isotope function
+            $showcases.isotope(isotopeArray);
 
-        // Push changes to isotope function
-        $showcases.isotope(isotopeArray);
+            $filter.removeClass("active");
+            $link.addClass("active");
 
-        $filter.removeClass("active");
-        $link.addClass("active");
+            console.log('filter: ' + isotopeArray["filter"]);
+            console.log('sortBy: ' + isotopeArray["sortBy"]);
 
-        console.log('filter: '+ isotopeArray["filter"]);
-        console.log('sortBy: '+ isotopeArray["sortBy"]);
-
-        // Stop further action on this link
-        return false;
+            // Stop further action on this link
+            return false;
+        });
     });
 });
