@@ -7,7 +7,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['showcase'] = [
     'inputType'               => 'select',
     'foreignKey'              => 'tl_showcase.title',
     'eval'                    => ['chosen' => true,],
-    'sql'                     => "int(10) unsigned NOT NULL default ='0'",
+    'sql'                     => "int(10) unsigned NOT NULL default '0'",
     'relation'                => ['type'=>'hasOne', 'load'=>'eager'],
 ];
 
