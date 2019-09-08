@@ -8,8 +8,6 @@ jQuery(function ($) {
 
 jQuery(function ($) {
 
-    // Initialize on load
-    $(window).load(function() {
 
         var $showcases = $('.mod_showcase_overview .showcases').isotope({
             itemSelector: '.showcase',
@@ -55,6 +53,5 @@ jQuery(function ($) {
 
             // Stop further action on this link
             return false;
-        });
     });
 });
