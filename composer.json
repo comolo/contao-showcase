@@ -12,7 +12,6 @@
   "require": {
     "php": "^7.0",
     "contao/core-bundle": "^4.4",
-    "symfony/framework-bundle": "^3.4 || ^4.0",
     "ausi/slug-generator": "^1.0"
   },
   "conflict": {
